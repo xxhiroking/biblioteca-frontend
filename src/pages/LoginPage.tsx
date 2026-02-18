@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom';
+
 const LoginPage = () => {
   return (
-    <div className="container">
-      <h1>Login Page</h1>
-      <p>Esta página se implementará en el siguiente tutorial.</p>
+    <div style={{ padding: '2rem', textAlign: 'center' }}>
+      <h1>Login</h1>
+      <p>Formulario de login (próximo archivo)</p>
+      <Link to="/register">¿No tienes cuenta? Regístrate</Link>
     </div>
   );
 };

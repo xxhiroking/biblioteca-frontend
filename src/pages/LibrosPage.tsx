@@ -1,9 +1,13 @@
+import Layout from '../components/Layout';
+
 const LibrosPage = () => {
   return (
-    <div className="container">
-      <h1>Libros Page</h1>
-      <p>Esta página se implementará en el siguiente tutorial.</p>
-    </div>
+    <Layout>
+      <div>
+        <h1>Mis Libros</h1>
+        <p>Aquí irá la lista de libros (próximo archivo)</p>
+      </div>
+    </Layout>
   );
 };
 
