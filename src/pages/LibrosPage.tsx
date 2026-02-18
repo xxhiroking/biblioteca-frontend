@@ -8,7 +8,8 @@ import Button from '../components/Button';
 import Alert from '../components/Alert';
 import LibrosStats from '../components/LibrosStats';
 import LoadingSkeleton from '../components/LoadingSkeleton';
-import { FiPlus, FiSearch } from 'react-icons/fi';
+import { FiPlus, FiSearch, FiDownload } from 'react-icons/fi';
+import { exportLibrosToCSV } from '../utils/exportCSV';
 import './LibrosPage.css';
 
 const LibrosPage = () => {
@@ -124,12 +125,22 @@ const LibrosPage = () => {
       <div className="libros-page">
         <div className="page-header">
           <h1>Mis Libros</h1>
-          <Button
-            variant="primary"
-            onClick={() => setShowForm(true)}
-          >
-            <FiPlus /> Agregar Libro
-          </Button>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            {libros.length > 0 && (
+              <Button
+                variant="secondary"
+                onClick={() => exportLibrosToCSV(libros)}
+              >
+                <FiDownload /> Exportar CSV
+              </Button>
+            )}
+            <Button
+              variant="primary"
+              onClick={() => setShowForm(true)}
+            >
+              <FiPlus /> Agregar Libro
+            </Button>
+          </div>
         </div>
 
         {libros.length > 0 && <LibrosStats libros={libros} />}

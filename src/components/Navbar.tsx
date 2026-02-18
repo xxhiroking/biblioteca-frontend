@@ -1,10 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { FiBook, FiLogOut, FiUser } from 'react-icons/fi';
+import { FiBook, FiLogOut, FiUser, FiMoon, FiSun } from 'react-icons/fi';
+import { useDarkMode } from '../hooks/useDarkMode';
 import './Navbar.css';
 
 const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
+  const { isDark, toggle } = useDarkMode();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -34,6 +36,9 @@ const Navbar = () => {
                 <FiUser className="user-icon" />
                 {user?.nombre}
               </span>
+              <button onClick={toggle} className="btn-theme-toggle" title={isDark ? 'Modo claro' : 'Modo oscuro'}>
+                {isDark ? <FiSun /> : <FiMoon />}
+              </button>
               <button onClick={handleLogout} className="btn-logout">
                 <FiLogOut />
                 Salir

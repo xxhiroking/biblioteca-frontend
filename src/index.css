@@ -79,6 +79,19 @@
   }
 }
 
+/* Dark mode toggle manual */
+.dark-mode {
+  --background: #111827;
+  --background-dark: #1f2937;
+  --surface: #1f2937;
+  --surface-hover: #374151;
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-tertiary: #9ca3af;
+  --border-color: #374151;
+  --border-color-hover: #4b5563;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
