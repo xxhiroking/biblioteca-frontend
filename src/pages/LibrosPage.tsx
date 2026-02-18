@@ -6,6 +6,8 @@ import LibroCard from '../components/LibroCard';
 import LibroForm from '../components/LibroForm';
 import Button from '../components/Button';
 import Alert from '../components/Alert';
+import LibrosStats from '../components/LibrosStats';
+import LoadingSkeleton from '../components/LoadingSkeleton';
 import { FiPlus, FiSearch } from 'react-icons/fi';
 import './LibrosPage.css';
 
@@ -107,9 +109,11 @@ const LibrosPage = () => {
   if (loading) {
     return (
       <Layout>
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-          <p>Cargando libros...</p>
+        <div className="libros-page">
+          <div className="page-header">
+            <h1>Mis Libros</h1>
+          </div>
+          <LoadingSkeleton />
         </div>
       </Layout>
     );
@@ -127,6 +131,8 @@ const LibrosPage = () => {
             <FiPlus /> Agregar Libro
           </Button>
         </div>
+
+        {libros.length > 0 && <LibrosStats libros={libros} />}
 
         {alert && (
           <Alert
